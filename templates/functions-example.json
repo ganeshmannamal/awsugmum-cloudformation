@@ -1,0 +1,27 @@
+{
+  "Parameters": {
+    "VPCNetworkPrefix": {
+      "Type" : "String",
+      "Default" : "",
+      "Description" : "Prefix to be used for creating VPC CIDR block Eg 10.0"
+    }
+  },
+  "Resources": {
+    "Vpc": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": {
+          "Fn::Join": [
+            ".",
+            [
+              {
+                "Ref": "VPCNetworkPrefix"
+              },
+              "0.0/16"
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

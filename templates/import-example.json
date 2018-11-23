@@ -1,0 +1,25 @@
+{
+  "Parameters": {
+    "SecurityGroupStackName": {
+      "Type": "String",
+      "Description": "Name of the stack that contains Security Groups"
+    }
+  },
+  "Resources": {
+    "Ec2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "SecurityGroups": [
+          {
+            "Fn::ImportValue": {
+              "Fn::Sub": "${SecurityGroupStack}-InstanceSecurityGroupId"
+            }
+          }
+        ],
+        "KeyName": "demokey",
+        "InstanceType": "t2.nano",
+        "ImageId": "ami-531a4c3c"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Resources": {
+    "Vpc": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16"
+      }
+    },
+    "Ec2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "KeyName": "demokey",
+        "ImageId": "ami-531a4c3c",
+        "InstanceType": "t2.nano"
+      }
+    }
+  }
+}

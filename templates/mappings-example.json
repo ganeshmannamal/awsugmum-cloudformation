@@ -1,0 +1,30 @@
+{
+  "Mappings": {
+    "RegionToAmiMap": {
+      "ap-south-1": {
+        "production": "ami-f9daac96"
+      },
+      "eu-west-1": {
+        "production": "ami-70edb016"
+      }
+    }
+  },
+  "Resources": {
+    "Ec2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "KeyName": "demokey",
+        "InstanceType": "t2.nano",
+        "ImageId": {
+          "Fn::FindInMap": [
+            "RegionToAmiMap",
+            {
+              "Ref": "AWS::Region"
+            },
+            "production"
+          ]
+        }
+      }
+    }
+  }
+}
