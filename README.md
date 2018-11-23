@@ -1,1 +1,1 @@
-# AWSUGMUM November 2017 Meetup - Cloudformation
+# AWSUGMUM November 2018 Meetup - Cloudformation
